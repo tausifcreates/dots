@@ -14,7 +14,7 @@ PS1='[\u@\h \W]\$ '
 eval "$(starship init bash)"
 
 # colorscript
-colorscript -e crunch
+colorscript -e bars
 
 # bat as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -75,7 +75,7 @@ ex ()
 
 
 # bat
-alias cat='bat'
+alias cc='bat'
 
 # ripgrep
 alias grep='rg'
