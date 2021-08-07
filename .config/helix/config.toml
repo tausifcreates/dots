@@ -1,0 +1,4 @@
+theme = "onedark"
+
+[lsp]
+display-messages = true

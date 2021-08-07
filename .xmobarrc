@@ -1,0 +1,141 @@
+Config { 
+
+   -- appearance
+
+     font =         "xft:DejaVuSansMono Nerd Font:style=Book:size=11:antialias=true"
+
+   , bgColor =      "#222222"
+
+   , fgColor =      "#eeeeee"
+
+   , position =     Top
+
+   , border =       FullB 
+
+   , borderColor =  "#333333"
+
+
+   -- layout
+
+   , sepChar =  "%"   -- delineator between plugin names and straight text
+
+   , alignSep = "}{"  -- separator between left-right alignment
+
+   , template = " <fc=#a4a8fc> </fc>  %battery%    %alsa:default:Master%    %bright%    %dynnetwork% }{ %StdinReader% %date% <fc=#b0d1ff>  </fc> "
+
+
+   -- general behavior
+
+   , lowerOnStart =     True    -- send to bottom of window stack on start
+
+   , hideOnStart =      False   -- start with window unmapped (hidden)
+
+   , allDesktops =      True    -- show on all desktops
+
+   , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
+
+   , pickBroadest =     False   -- choose widest display (multi-monitor)
+
+   , persistent =       True    -- enable/disable hiding (True = disabled)
+
+
+   -- plugins
+
+   , commands = 
+
+        [
+        
+         -- Battery monitor
+
+         Run Battery        [
+
+                             "--template" , "<acstatus>"
+                             , "--Low"      , "10"        -- units: %
+                             , "--High"     , "80"        -- units: %
+                             , "--low"      , "#ff8aa9"
+                             , "--normal"   , "#dabfff"
+                             , "--high"     , "#d9d9ff"
+
+                             , "--" -- battery specific options
+
+                                       -- discharging status
+                                       , "-o"	, " <left> "
+                                       -- AC "on" status
+                                       , "-O"	, " <left> "
+                                       -- charged status
+                                       , "-i"	, "<fc=#99ff99> Charged</fc>"
+
+                             ] 50
+
+
+        -- Volume monitor
+
+        , Run Alsa "default" "Master"
+
+                             [
+
+                             "--template" , "<status><volume> "
+                               
+                             , "--Low"      , "10"        -- units: %
+                             , "--High"     , "80"        -- units: %
+                             , "--low"      , "#ff8aa9"
+                             , "--normal"   , "#dabfff"
+                             , "--high"     , "#99ff99"
+                             
+                             , "--" -- volume specific options
+
+                                       -- Unmuted
+                                       , "-O"   , "<fc=#f2d1ff>墳 </fc>"
+                                       -- Muted
+                                       , "-o"   , "<fc=#ffd4d8>婢 </fc>"
+
+                             ]
+
+
+        -- Brightness monitor
+
+        , Run Brightness     [
+
+                             "--template" , "<fc=#d4d4d4> </fc> <percent> "
+                               
+                             , "--Low"      , "10"        -- units: %
+                             , "--High"     , "80"        -- units: %
+                             , "--low"      , "#c4e7ff"
+                             , "--normal"   , "#dabfff"
+                             , "--high"     , "#ff8aa9" 
+
+                             , "--" -- brightness specific options
+
+                                       -- Directory to lookup 
+                                       , "-D"   , "intel_backlight" 
+
+                             ] 10
+
+
+        -- Network activity monitor (dynamic interface resolution)         
+
+        , Run DynNetwork     [
+
+                             "--template" , "<fc=#d4d4ff>直 </fc>  <rx>kB/s  <tx>kB/s"
+                             , "--Low"      , "1000"       -- units: B/s
+                             , "--High"     , "5000"       -- units: B/s
+                             , "--low"      , "#d6fff1"
+                             , "--normal"   , "#78ffc0"
+                             , "--high"     , "#7ab6ff"
+
+                             ] 10
+
+
+        -- Read input
+
+        , Run StdinReader
+
+
+        -- time and date indicator 
+
+        , Run Date "<fc=#fdffd6> %a, %b-%d</fc>  <fc=#dbffe4> %H:%M</fc>" "date" 10 
+
+
+        ]
+
+}

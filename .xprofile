@@ -1,0 +1,12 @@
+# DPI
+xrandr --dpi 192
+export GDK_SCALE=1.5
+
+# Keyboard Layout
+setxkbmap us &
+
+# Wallpaper
+nitrogen --restore &
+
+# Compositor
+picom -f --experimental-backends &
