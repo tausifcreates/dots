@@ -7,6 +7,7 @@ import XMonad.Layout.Gaps
 import XMonad.Actions.CycleWS
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import XMonad.Util.SpawnOnce
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -118,12 +119,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     
     -- a basic CycleWS setup
 
-    , ((modm,               xK_s),  nextWS)
-    , ((modm,               xK_a),    prevWS)
-    , ((modm .|. shiftMask, xK_s),  shiftToNext)
-    , ((modm .|. shiftMask, xK_a),    shiftToPrev)
-    , ((modm,               xK_z),     toggleWS)
+    , ((modm,               xK_w),  nextWS)
+    , ((modm,               xK_q),    prevWS)
+    , ((modm .|. shiftMask, xK_w),  shiftToNext)
+    , ((modm .|. shiftMask, xK_q),    shiftToPrev)
 
+
+    , ((modm,               xK_Right),  nextWS)
+    , ((modm,               xK_Left),    prevWS)
+    , ((modm .|. shiftMask, xK_Right),  shiftToNext)
+    , ((modm .|. shiftMask, xK_Left),    shiftToPrev)
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
     -- See also the statusBar function from Hooks.DynamicLog.
@@ -131,10 +136,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
     -- Quit xmonad
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
+    , ((modm .|. shiftMask, xK_r     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
-    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm              , xK_r     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
@@ -241,8 +246,9 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
-
+myStartupHook :: X()
+myStartupHook = do
+    spawnOnce "picom --experimental-backends &"
 ------------------------------------------------------------------------
 -- Command to launch the bar.
 myBar = "xmobar"

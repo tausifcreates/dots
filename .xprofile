@@ -7,6 +7,3 @@ setxkbmap us &
 
 # Wallpaper
 nitrogen --restore &
-
-# Compositor
-picom -f --experimental-backends &
