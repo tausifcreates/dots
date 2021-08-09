@@ -3,6 +3,7 @@
 !.bashrc
 !.dmrc
 !.gitignore
+!mkinitcpio.conf
 !.xmobarrc
 !.xprofile
 !.Xresources
@@ -23,3 +24,5 @@
 !.config/picom
 !.config/picom/picom.conf
 !.config/starship.toml
+!boot
+!boot/*
