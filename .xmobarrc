@@ -8,7 +8,9 @@ Config {
 
    , fgColor =      "#eeeeee"
 
-   , position =     Top
+   , alpha =        192
+
+   , position =     TopP 15 15
 
    , border =       FullB 
 
@@ -59,9 +61,9 @@ Config {
                              , "--" -- battery specific options
 
                                        -- discharging status
-                                       , "-o"	, " <left>"
+                                       , "-o"	, "  <left>"
                                        -- AC "on" status
-                                       , "-O"	, " <left>"
+                                       , "-O"	, "  <left>"
                                        -- charged status
                                        , "-i"	, "<fc=#99ff99> Charged</fc>"
 
@@ -96,7 +98,7 @@ Config {
 
         , Run Brightness     [
 
-                             "--template" , "<fc=#d4d4d4> </fc> <percent>"
+                             "--template" , "<fc=#d4d4d4> </fc> <percent>"
                                
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
