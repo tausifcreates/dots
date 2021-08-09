@@ -4,6 +4,7 @@ import System.Exit
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.Gaps
+import XMonad.Layout.Spacing
 import XMonad.Actions.CycleWS
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -185,7 +186,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = gaps [(U, 15), (R, 15), (D, 15), (L, 15)] $ tiled ||| Mirror tiled ||| Full
+myLayout = spacingRaw False (Border 0 0 0 0) False (Border 6 6 6 6) True $ gaps [(U, 15), (R, 15), (D, 15), (L, 15)] $ tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -257,7 +258,7 @@ myBar = "xmobar"
 myPP = xmobarPP {
 		  ppTitle = xmobarColor "#9ec3ff" "" . shorten 0
 		, ppCurrent = xmobarColor "#f7c4ff" "" . wrap "[" "]"
-		, ppLayout = xmobarColor "#baffce" ""
+		--, ppLayout = xmobarColor "#baffce" ""
 		}
 
 -- Key binding to toggle the gap for the bar.

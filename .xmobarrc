@@ -59,9 +59,9 @@ Config {
                              , "--" -- battery specific options
 
                                        -- discharging status
-                                       , "-o"	, " <left> "
+                                       , "-o"	, " <left>"
                                        -- AC "on" status
-                                       , "-O"	, " <left> "
+                                       , "-O"	, " <left>"
                                        -- charged status
                                        , "-i"	, "<fc=#99ff99> Charged</fc>"
 
@@ -74,7 +74,7 @@ Config {
 
                              [
 
-                             "--template" , "<status><volume> "
+                             "--template" , "<status><volume>"
                                
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
@@ -85,9 +85,9 @@ Config {
                              , "--" -- volume specific options
 
                                        -- Unmuted
-                                       , "-O"   , "<fc=#f2d1ff>墳 </fc>"
+                                       , "-O"   , "<fc=#f2d1ff>  </fc>"
                                        -- Muted
-                                       , "-o"   , "<fc=#ffd4d8>婢 </fc>"
+                                       , "-o"   , "<fc=#ffd4d8>ﳌ </fc>"
 
                              ]
 
@@ -96,7 +96,7 @@ Config {
 
         , Run Brightness     [
 
-                             "--template" , "<fc=#d4d4d4> </fc> <percent> "
+                             "--template" , "<fc=#d4d4d4> </fc> <percent>"
                                
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
@@ -116,7 +116,7 @@ Config {
 
         , Run DynNetwork     [
 
-                             "--template" , "<fc=#d4d4ff>直 </fc>  <rx>kB/s  <tx>kB/s"
+                             "--template" , "<fc=#d4d4ff>直 </fc>  <rx>  <tx>"
                              , "--Low"      , "1000"       -- units: B/s
                              , "--High"     , "5000"       -- units: B/s
                              , "--low"      , "#d6fff1"
