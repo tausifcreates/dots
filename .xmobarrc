@@ -21,7 +21,7 @@ Config {
 
    , alignSep = "}{"  -- separator between left-right alignment
 
-   , template = " <fc=#a4a8fc> </fc>  %battery%    %alsa:default:Master%    %bright%    %dynnetwork% }{ %StdinReader% %date% <fc=#b0d1ff>  </fc> "
+   , template = " <fc=#a4a8fc> </fc>  %battery%    %alsa:default:Master%    %bright%    %dynnetwork% }{ %StdinReader% %date% <fc=#b0d1ff>  </fc> "
 
 
    -- general behavior
