@@ -3,11 +3,9 @@
 !.bashrc
 !.dmrc
 !.gitignore
-!.gtkrc-2.0
 !.xmobarrc
 !.xprofile
 !.Xresources
-!.xscreensaver
 !.zshrc
 !.xmonad
 !.xmonad/xmonad.hs
