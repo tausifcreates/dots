@@ -23,6 +23,8 @@
 !.config/onlyoffice/DesktopEditors.conf
 !.config/picom
 !.config/picom/picom.conf
+!.config/river
+!.config/river/init
 !.config/starship.toml
 !boot
 !boot/*
