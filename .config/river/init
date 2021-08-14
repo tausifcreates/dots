@@ -8,12 +8,23 @@
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
+# Set HiDPI after server is initialized.
+wlr-randr --output eDP-1 --scale 1.4
+
 # Use the "logo" key as the primary modifier
 mod="Mod4"
 
-# Mod+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal $mod+Shift Return spawn "alacritty"
-riverctl map normal $mod P spawn "wofi --show run"
+# Terminal emulator
+riverctl map normal $mod P spawn "alacritty"
+
+# Menu launcher
+riverctl map normal $mod O spawn "wofi --show drun"
+
+# Bin launcher
+riverctl map normal $mod I spawn "wofi --show run"
+
+# wlogout
+riverctl map normal $mod U spawn "wlogout"
 
 # Mod+Q to close the focused view
 riverctl map normal $mod Q close
@@ -29,14 +40,6 @@ riverctl map normal $mod K focus-view previous
 # view in the layout stack
 riverctl map normal $mod+Shift J swap next
 riverctl map normal $mod+Shift K swap previous
-
-# Mod+Period and Mod+Comma to focus the next/previous output
-riverctl map normal $mod Period focus-output next
-riverctl map normal $mod Comma focus-output previous
-
-# Mod+Shift+{Period,Comma} to send the focused view to the next/previous output
-riverctl map normal $mod+Shift Period send-to-output next
-riverctl map normal $mod+Shift Comma send-to-output previous
 
 # Mod+Return to bump the focused view to the top of the layout stack
 riverctl map normal $mod Return zoom
@@ -125,7 +128,7 @@ do
     # Eject the optical drive
     riverctl map $mode None XF86Eject spawn 'eject -T'
 
-    # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
+    # Control alsa volume with amixer
     riverctl map $mode None XF86AudioRaiseVolume  spawn 'amixer set Master 5%+'
     riverctl map $mode None XF86AudioLowerVolume  spawn 'amixer set Master 5%-'
     riverctl map $mode None XF86AudioMute         spawn 'amixer set Master toggle'
@@ -136,15 +139,15 @@ do
     riverctl map $mode None XF86AudioPrev  spawn 'playerctl previous'
     riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
 
-    # Control screen backlight brighness with light (https://github.com/haikarainen/light)
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +10%'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 10%-'
+    # Control screen backlight brighness with brightnessctl
+    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
+    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
 done
 
 # Set background and border color
 riverctl background-color 0x002b36
 riverctl border-color-focused 0x93a1a1
-riverctl border-color-unfocused 0x586e75
+riverctl border-color-unfocused 0x002b36
 
 # Set repeat rate
 riverctl set-repeat 50 300
@@ -152,11 +155,20 @@ riverctl set-repeat 50 300
 # Set app-ids of views which should float
 riverctl float-filter-add "float"
 riverctl float-filter-add "popup"
+riverctl float-filter-add "seahorse"
+riverctl float-filter-add "wlogout"
 
 # Set app-ids of views which should use client side decorations
-riverctl csd-filter-add "gedit"
+# riverctl csd-filter-add "gedit"
 
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
-exec rivertile
+
+# Input device (touchpad)
+riverctl input "1267:91:Elan_Touchpad" events enabled
+riverctl input "1267:91:Elan_Touchpad" tap enabled
+riverctl input "1267:91:Elan_Touchpad" drag enabled
+riverctl input "1267:91:Elan_Touchpad" pointer-accel factor 0.5
+
+exec rivertile -main-ratio 0.5 -view-padding 2 -outer-padding 2

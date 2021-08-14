@@ -77,14 +77,20 @@ ex ()
 # bat
 alias cc='bat'
 
-# ripgrep
-alias grep='rg'
-
 # whereis
 alias wr='whereis'
 
 # vim
 alias vi='vim'
+
+# diff
+alias diff='diff --color=auto'
+
+# sway-launcher
+alias sd='sway-launcher-desktop'
+
+# ip
+alias ip='ip -color=auto'
 
 # Changing "ls" to "exa"
 alias ls='exa -al --color=always --group-directories-first' # my preferred listing
@@ -105,10 +111,6 @@ alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pac
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-
-
-# Merge Xresources
-alias merge='xrdb -merge ~/.Xresources'
 
 
 # get error messages from journalctl
