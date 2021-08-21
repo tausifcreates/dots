@@ -1,0 +1,17 @@
+# Colorscheme
+colorscheme one-dark
+
+set-option global tabstop 4
+set-option global indentwidth 4
+
+# save a bit of window space by removing clippy from popups
+set global ui_options ncurses_assistant=none
+
+# Insert 4 spaces on tab
+hook global InsertChar \t %{ exec -draft -itersel h@ } -group kakrc-replace-tabs-with-spaces
+
+hook global WinCreate .* %{
+    add-highlighter window/numbers          number-lines -hlcursor -separator ' '
+    add-highlighter window/matching         show-matching
+    add-highlighter window/wrap             wrap -word -indent -width 101 -marker '↪'
+}

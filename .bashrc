@@ -19,18 +19,6 @@ colorscript -e bars
 # bat as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-# path variables
-if [ -d "$HOME/.bin" ] ;
-  then PATH="$HOME/.bin:$PATH"
-fi
-  
-if [ -d "$HOME/.local/bin" ] ;
-  then PATH="$HOME/.local/bin:$PATH"
-fi
-
-if [ -d "$HOME/Applications" ] ;
-    then PATH="$HOME/Applications:$PATH"
-fi
 
 # SHOPT
 shopt -s autocd # change to named directory
@@ -74,20 +62,29 @@ ex ()
 }
 
 
-# bat
-alias cc='bat'
-
 # whereis
 alias wr='whereis'
 
-# vim
-alias vi='vim'
+# battery
+alias bbt='bat /sys/class/power_supply/BAT0/status; bat /sys/class/power_supply/BAT0/capacity'
+
+# Pacman package browsing
+#
+# Browse all installed pkg
+alias ipkg="pacman -Qq | sk --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | bat --color=always)'"
+#
+# Browse all packages in Arch repo
+alias pkg="pacman -Slq | sk --preview 'pacman -Si {}' --layout=reverse"
+
+# Sk is alternative to fzf
+#alias sk="find -type f | sk \
+#	\
+#	--color=fg:#bdbfff,current_bg:#b3ffcf,current:#383838,matched_bg:#2e36b0,matched:#dedfff,current_match_bg:#7affa7,current_match:#003010,border:#b3ffcf,pointer:#034d1e \
+#	\
+#	--preview='bat --style numbers,changes --color=always {}'"
 
 # diff
 alias diff='diff --color=auto'
-
-# sway-launcher
-alias sd='sway-launcher-desktop'
 
 # ip
 alias ip='ip -color=auto'

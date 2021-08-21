@@ -6,8 +6,8 @@ $character
 """
 
 [character]
-success_symbol = "[❯](#d89eff)[❯](#b8bbff)"
-error_symbol = "[❯](#d89eff)[❯](#ffa6cb)"
+success_symbol = "[❯](#d89eff) "
+error_symbol = "[❯](#ffa6cb) "
 
 [directory]
 truncation_length = 5
@@ -23,7 +23,7 @@ charging_symbol = "⚡️"
 discharging_symbol = "💀"
 
 [[battery.display]]
-threshold = 20
+threshold = 30
 style = "#d2adff"
 
 [git_branch]

@@ -1,0 +1,8 @@
+ignore-empty-password
+daemonize
+image=~/Downloads/Pictures/anime_boy_cycle.jpg
+color=222222
+font=DejaVuSansMono Nerd Font
+font-size=12
+indicator-radius=40
+indicator-thickness=8
