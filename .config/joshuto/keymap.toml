@@ -1,0 +1,73 @@
+[keymap]
+
+# Navigation
+[[mapcommand]]
+command = "open"
+keys = [ "arrow_right" ]
+
+[[mapcommand]]
+command = "cd .."
+keys = [ "arrow_left" ]
+
+[[mapcommand]]
+command = "cursor_move_up"
+keys = [ "arrow_up" ]
+
+[[mapcommand]]
+command = "cursor_move_down"
+keys = [ "arrow_down" ]
+
+[[mapcommand]]
+command = "cursor_move_end"
+keys = [ "end" ]
+
+[[mapcommand]]
+command = "cursor_move_home"
+keys = [ "home" ]
+
+# File operations
+[[mapcommand]]
+command = "copy_files"
+keys = [ "y" ]
+
+[[mapcommand]]
+command = "cut_files"
+keys = [ "c" ]
+
+[[mapcommand]]
+command = "paste_files --overwrite=true"
+keys = [ "p" ]
+
+[[mapcommand]]
+command = "delete_files"
+keys = [ "delete" ]
+
+# Command line
+[[mapcommand]]
+command = ":shell "
+keys = [ ";" ]
+
+[[mapcommand]]
+command = ":mkdir "
+keys = [ "m" ]
+
+[[mapcommand]]
+command = ":rename "
+keys = [ "r" ]
+
+[[mapcommand]]
+command = ":touch "
+keys = [ "t" ]
+
+# Misc
+[[mapcommand]]
+command = "quit"
+keys = [ "q" ]
+
+[[mapcommand]]
+command = "toggle_hidden"
+keys = [ "." ]
+
+[[mapcommand]]
+command = "show_workers "
+keys = [ "w" ]
