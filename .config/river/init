@@ -34,7 +34,7 @@ riverctl map normal $mod P spawn "alacritty"
 riverctl map normal $mod O spawn "exec alacritty --class=launcher -e sway-launcher-desktop"
 
 # wlogout
-riverctl map normal $mod U spawn "wlogout"
+riverctl map normal $mod U spawn "grim out.png"
 
 # Mod+Q to close the focused view
 riverctl map normal $mod Q close
