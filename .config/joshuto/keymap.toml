@@ -42,6 +42,10 @@ keys = [ "p" ]
 command = "delete_files"
 keys = [ "delete" ]
 
+[[mapcommand]]
+command = "reload_dirlist"
+keys = [ "d" ]
+
 # Command line
 [[mapcommand]]
 command = ":shell "
