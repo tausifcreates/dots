@@ -13,9 +13,6 @@ PS1='[\u@\h \W]\$ '
 # starship prompt
 eval "$(starship init bash)"
 
-# colorscript
-colorscript -e bars
-
 # bat as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
@@ -71,17 +68,10 @@ alias bbt='bat /sys/class/power_supply/BAT0/status; bat /sys/class/power_supply/
 # Pacman package browsing
 #
 # Browse all installed pkg
-alias ipkg="pacman -Qq | sk --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | bat --color=always)'"
+alias ipkg="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | bat --color=always)'"
 #
 # Browse all packages in Arch repo
-alias pkg="pacman -Slq | sk --preview 'pacman -Si {}' --layout=reverse"
-
-# Sk is alternative to fzf
-#alias sk="find -type f | sk \
-#	\
-#	--color=fg:#bdbfff,current_bg:#b3ffcf,current:#383838,matched_bg:#2e36b0,matched:#dedfff,current_match_bg:#7affa7,current_match:#003010,border:#b3ffcf,pointer:#034d1e \
-#	\
-#	--preview='bat --style numbers,changes --color=always {}'"
+alias pkg="pacman -Slq | fzf --preview 'pacman -Si {}' --layout=reverse"
 
 # diff
 alias diff='diff --color=auto'
