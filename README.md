@@ -1,2 +1,2 @@
-# ino
+# dotfiles
 My config files.
