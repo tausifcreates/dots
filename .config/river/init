@@ -170,7 +170,6 @@ riverctl float-filter-add "float"
 riverctl float-filter-add "popup"
 riverctl float-filter-add "wlogout"
 riverctl float-filter-add "launcher"
-riverctl float-filter-add "mako"
 
 # Set app-ids of views which should use client side decorations
 # riverctl csd-filter-add "gedit"

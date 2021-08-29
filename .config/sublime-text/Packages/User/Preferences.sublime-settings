@@ -1,0 +1,16 @@
+{
+	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
+	"font_face": "DejaVuSansMono Nerd Font",
+	"font_size": 12,
+	"word_wrap": true,
+	"wrap_width": 60,
+	"block_caret": true,
+	"hardware_acceleration": "opengl",
+	"draw_indent_guides": false,
+	"ignored_packages":
+	[
+		"Rust",
+		"Vintage",
+	],
+	"theme": "auto",
+}
