@@ -8,9 +8,6 @@
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
-# Set HiDPI after server is initialized.
-riverctl spawn "wlr-randr --output eDP-1 --scale 1.4"
-
 # Swayidle
 riverctl spawn "swayidle -w \
     timeout 600 'swaylock -f'"
@@ -28,13 +25,10 @@ riverctl attach-mode bottom
 mod="Mod4"
 
 # Terminal emulator
-riverctl map normal $mod P spawn "alacritty"
+riverctl map normal $mod P spawn "foot"
 
 # Menu launcher
 riverctl map normal $mod O spawn "exec alacritty --class=launcher -e sway-launcher-desktop"
-
-# wlogout
-riverctl map normal $mod U spawn "grim out.png"
 
 # Mod+Q to close the focused view
 riverctl map normal $mod Q close
