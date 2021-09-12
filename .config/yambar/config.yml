@@ -1,16 +1,16 @@
 # fonts we'll be re-using here and there
-awesome: &awesome Font Awesome 5 Free:style=solid:pixelsize=28
-awesome_brands: &awesome_brands Font Awesome 5 Brands:pixelsize=24
+awesome: &awesome Font Awesome 5 Free:style=solid:pixelsize=18
+awesome_brands: &awesome_brands Font Awesome 5 Brands:pixelsize=18
 
 # This is THE bar configuration
 bar:
-  height: 40
+  height: 32
   location: top
   spacing: 25
   margin: 24
 
   # Default font
-  font: DejaVuSansMono Nerd Font:pixelsize=28
+  font: DejaVuSansMono Nerd Font:pixelsize=18
 
   foreground: eeeeeeff
   background: 22222266
@@ -89,7 +89,7 @@ bar:
 
     - backlight:
         name: intel_backlight
-        content: [ string: {text: , font: *awesome}, string: {text: "{percent}", left-margin: 15}]
+        content: [ string: {text: 💡︁, font: *awesome}, string: {text: "{percent}", left-margin: 15}]
 
 
     - network:
@@ -104,7 +104,7 @@ bar:
                 - string: {text:  , font: *awesome, foreground: ff0000ff}
               up:
                 - string: {text: ︁ , font: *awesome}
-                - string: {text: "{name}: {state}", left-margin: 15}
+                - string: {text: "{state}", left-margin: 15}
 
 
   center:
