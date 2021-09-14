@@ -18,7 +18,7 @@ set-option global autoreload yes
 set-option global autocomplete insert
 
 add-highlighter global/ wrap -word -indent -width 80 -marker ' '
-# Highlight matching chars 
+# Highlight matching chars
 add-highlighter global/ show-matching
 # Color Combination for matching chars
 set-face global MatchingChar rgb:0d316b,rgb:adb3ff+b
@@ -37,3 +37,23 @@ hook global InsertCompletionShow .* %{
         }
     }
 }
+
+# Select & extend lines downward  
+def -params 1 extend-line-down %{
+  exec "<a-:>%arg{1}X"
+}
+
+# Select & extend lines upward
+def -params 1 extend-line-up %{
+  exec "<a-:><a-;>%arg{1}K<a-;>"
+  try %{
+    exec -draft ';<a-K>\n<ret>'
+    exec X
+  }
+  exec '<a-;><a-X>'
+}
+
+# Map x to select & extend lines downward
+map global normal x ':extend-line-down %val{count}<ret>'
+# Map X to select & extend lines upward
+map global normal X ':extend-line-up %val{count}<ret>'
