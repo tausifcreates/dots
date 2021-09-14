@@ -3,7 +3,7 @@
 #scroll_offset = 6
 
 # If joshuto does not know how to open the file, it can resort to opening it via xdg settings
-xdg_open = true
+xdg_open = false
 
 # Use system trash can instead of permanently removing files
 use_trash = true
