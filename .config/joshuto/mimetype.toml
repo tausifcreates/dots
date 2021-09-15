@@ -3,7 +3,7 @@ audio_default = [{ command = "mpv", args = ["--"] }]
 
 image_default = [{ command = "qimgv", fork = true, silent = true }]
 
-video_default = [{ command = "mpv", args = ["--"], fork = true, silent = true }]
+video_default = [{ command = "celluloid", args = ["--"], fork = true, silent = true }]
 
 text_default = [{ command = "kak", confirm_exit = false }]
 
