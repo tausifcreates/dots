@@ -1,7 +1,7 @@
 [class]
 audio_default = [{ command = "mpv", args = ["--"] }]
 
-image_default = [{ command = "qimgv", fork = true, silent = true }]
+image_default = [{ command = "imv-folder", fork = true, silent = true }]
 
 video_default = [{ command = "mpv", args = ["--hwdec=auto"], fork = true, silent = true }]
 
