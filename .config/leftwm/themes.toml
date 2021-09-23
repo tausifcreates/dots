@@ -1,0 +1,9 @@
+[[repos]]
+url = "https://raw.githubusercontent.com/leftwm/leftwm-community-themes/master/known.toml"
+name = "community"
+themes = []
+
+[[repos]]
+url = "localhost"
+name = "LOCAL"
+themes = []
