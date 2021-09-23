@@ -129,13 +129,13 @@ key = "Down"
 
 [[keybind]]
 command = "FocusWorkspaceNext"
-modifier = ["modkey"]
-key = "n"
+modifier = ["modkey", "Shift"]
+key = "Right"
 
 [[keybind]]
 command = "FocusWorkspacePrevious"
-modifier = ["modkey"]
-key = "p"
+modifier = ["modkey", "Shift"]
+key = "Left"
 
 [[keybind]]
 command = "GotoTag"
