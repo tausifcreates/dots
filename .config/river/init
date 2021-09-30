@@ -27,13 +27,13 @@ riverctl attach-mode bottom
 mod="Mod4"
 
 # Terminal emulator
-riverctl map normal $mod P spawn "foot"
+riverctl map normal $mod Return spawn "foot"
 
 # Menu launcher
-riverctl map normal $mod O spawn "fuzzel"
+riverctl map normal $mod+Shift Return spawn "fuzzel"
 
 # Mod+Q to close the focused view
-riverctl map normal $mod Q close
+riverctl map normal $mod+Shift Q close
 
 # Mod+E to exit river
 riverctl map normal $mod+Shift E exit
@@ -160,6 +160,10 @@ riverctl border-color-unfocused 0x002b36
 
 # Set repeat rate
 riverctl set-repeat 50 300
+
+# Make certain views start floating
+riverctl float-filter-add app-id float
+riverctl float-filter-add title "popup title with spaces"
 
 # Set app-ids of views which should float
 riverctl float-filter-add "float"
