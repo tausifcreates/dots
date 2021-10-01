@@ -8,17 +8,24 @@
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 # yambar
-riverctl spawn "yambar &"
+riverctl spawn "killall yambar; yambar &"
 
 # Swayidle
 riverctl spawn "swayidle -w \
     timeout 600 'swaylock -f'"
 
 # Input device (touchpad)
-riverctl input "1267:91:Elan_Touchpad" events enabled
 riverctl input "1267:91:Elan_Touchpad" tap enabled
 riverctl input "1267:91:Elan_Touchpad" drag enabled
+riverctl input "1267:91:Elan_Touchpad" accel-profile adaptive
 riverctl input "1267:91:Elan_Touchpad" pointer-accel 0.5
+
+# Input device (usb mouse)
+riverctl input "2362:9488:PixArt_USB_Optical_Mouse" accel-profile adaptive
+riverctl input "2362:9488:PixArt_USB_Optical_Mouse" pointer-accel 0.5
+
+# Set cursor theme and (optionally) size
+riverctl xcursor-theme Nordzy-cursors 32
 
 # New windows will stack to the bottom
 riverctl attach-mode bottom
@@ -48,7 +55,7 @@ riverctl map normal $mod+Shift J swap next
 riverctl map normal $mod+Shift K swap previous
 
 # Mod+Return to bump the focused view to the top of the layout stack
-riverctl map normal $mod Return zoom
+#riverctl map normal $mod Return zoom
 
 # Mod+Tab to cycle through occupied tags
 riverctl map normal $mod Tab spawn "river-cycle-tags"
@@ -163,13 +170,11 @@ riverctl set-repeat 50 300
 
 # Make certain views start floating
 riverctl float-filter-add app-id float
+riverctl float-filter-add app-id seahorse
+riverctl float-filter-add title wlogout
+riverctl float-filter-add title "Open Folder"
+riverctl float-filter-add title "Firefox — Sharing Indicator"
 riverctl float-filter-add title "popup title with spaces"
-
-# Set app-ids of views which should float
-riverctl float-filter-add "float"
-riverctl float-filter-add "popup"
-riverctl float-filter-add "wlogout"
-riverctl float-filter-add "launcher"
 
 # Set app-ids of views which should use client side decorations
 # riverctl csd-filter-add "gedit"

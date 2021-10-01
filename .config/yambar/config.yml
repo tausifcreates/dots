@@ -1,0 +1,160 @@
+# fonts we'll be re-using here and there
+awesome: &awesome Font Awesome 5 Free:style=solid:pixelsize=18
+awesome_brands: &awesome_brands Font Awesome 5 Brands:pixelsize=18
+
+# This is THE bar configuration
+bar:
+  height: 32
+  location: top
+  spacing: 25
+  margin: 24
+
+  # Default font
+  font: DejaVuSansMono Nerd Font:pixelsize=18
+
+  foreground: eeeeeeff
+  background: 22222266
+
+  border:
+    width: 0
+    color: 999999cc
+    margin: 0
+
+  left:
+    - label:
+        content:
+          string:
+            text: ""
+            foreground: a3a6ffff
+            right-margin: 20
+
+    - battery:
+        name: BAT0
+        poll-interval: 60
+        content:
+          map:
+            tag: state
+
+            values:
+              discharging:
+                - ramp:
+                    tag: capacity
+
+                    items:
+                      - string:
+                          { text: , foreground: ff0000ff, font: *awesome }
+                      - string:
+                          { text: , foreground: ffa600ff, font: *awesome }
+                      - string:
+                          { text: , foreground: ffaf54ff, font: *awesome }
+                      - string:
+                          { text: , foreground: eaf086ff, font: *awesome }
+                      - string:
+                          { text: , foreground: d3f28aff, font: *awesome }
+                      - string:
+                          { text: , foreground: 97f777ff, font: *awesome }
+                      - string:
+                          { text: , foreground: 4cf58aff, font: *awesome }
+                      - string:
+                          { text: , foreground: 40ff96ff, font: *awesome }
+                      - string:
+                          { text: , foreground: 07fa75ff, font: *awesome }
+                      - string:
+                          { text: , foreground: 00ff00ff, font: *awesome }
+
+                - string: { text: "{capacity}", left-margin: 15 }
+
+              charging:
+                - string: { text: , foreground: 00ff00ff, font: *awesome }
+                - string: { text: "{capacity}", left-margin: 15 }
+
+              full:
+                - string: { text: , foreground: 00ff00ff, font: *awesome }
+                - string: { text: "{capacity} full", left-margin: 15 }
+
+    - alsa:
+        card: hw:PCH
+        mixer: Master
+        content:
+          map:
+            on-click: /bin/sh -c "amixer -q sset Speaker unmute && amixer -q sset Headphone unmute && amixer -q sset Master toggle"
+            tag: muted
+            values:
+              true:
+                { string: { text: , font: *awesome, foreground: ffffff66 } }
+              false:
+                - string: { text: ︁, font: *awesome, foreground: bff1ffff }
+                - string: { text: "{percent}", left-margin: 15 }
+
+    - backlight:
+        name: intel_backlight
+        content:
+          [
+            string: { text: , font: *awesome, foreground: ffef91ff },
+            string: { text: "{percent}", left-margin: 15 },
+          ]
+
+    - network:
+        name: wlan0
+        content:
+          map:
+            tag: state
+            default:
+              - string: { text: ︁, font: *awesome, foreground: ffffff66 }
+            values:
+              down:
+                - string: { text: , font: *awesome, foreground: ff0000ff }
+              up:
+                - string: { text: ︁, foreground: d6dbffff, font: *awesome }
+                - string: { text: "{state}", left-margin: 15 }
+
+  center:
+    - river:
+        title:
+          string:
+            text: "{title}"
+            max: 35
+            margin: 20
+
+        content:
+          map:
+            tag: occupied
+            values:
+              false:
+                map:
+                  tag: focused
+                  values:
+                    false: { empty: {} }
+                    true:
+                      string:
+                        text: "{id}"
+                        margin: 5
+              true:
+                map:
+                  tag: focused
+                  values:
+                    false:
+                      string:
+                        on-click: /bin/sh -c "riverctl set-focused-tags $((1<<({id}-1)))"
+                        text: "{id}"
+                        margin: 5
+                    true:
+                      string:
+                        text: "[{id}]"
+                        margin: 5
+
+  right:
+    - clock:
+        time-format: "%H:%M"
+        content:
+          - string: { text: , font: *awesome, foreground: d4cfffff }
+          - string: { text: "{date}", left-margin: 20, right-margin: 50 }
+          - string: { text: , font: *awesome, foreground: e3f2ffff }
+          - string: { text: "{time}", left-margin: 15 }
+
+    - label:
+        content:
+          string:
+            on-click: /bin/sh -c "killall wlogout; wlogout"
+            text: ︁
+            font: *awesome
