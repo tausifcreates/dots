@@ -6,13 +6,13 @@ $character
 """
 
 [character]
-success_symbol = "[❯❯](#d89eff)"
-error_symbol = "[❯❯](#ffa6cb)"
+success_symbol = "[❯](#d89eff)"
+error_symbol = "[❯](#ffa6cb)"
 
 [directory]
 truncation_length = 5
 truncation_symbol = "…/"
-format = "[$path]($style)[$read_only]($read_only_style) "
+format = "[$path]($style)[$read_only]($read_only_style)"
 style = "#c4c8ff"
 read_only = "  "
 home_symbol = "~"
@@ -40,7 +40,7 @@ use_12hr = true
 style = "#ffdaad"
 
 [username]
-disabled = false
+disabled = true
 format = "[$user]($style) "
 style_user = "#9cc8ff"
 show_always = true
