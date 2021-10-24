@@ -658,6 +658,14 @@ globalkeys = gears.table.join(
                     awful.spawn('amixer set Capture toggle', false)
                 end,
                 { description = 'mute microphone', group = 'hotkeys' }
+        ),
+        awful.key(
+                {},
+                'Print',
+                function()
+                    awful.spawn('flameshot full -c')
+                end,
+                { description = 'fullscreen screenshot', group = 'Utility' }
         )
 )
 
