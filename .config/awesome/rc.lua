@@ -13,9 +13,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
-local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
-
 -- awesome-wm-widgets
 local battery_widget = require("battery-widget")
 local volume_control = require("volume-control")
@@ -153,10 +151,6 @@ mylauncher = awful.widget.launcher(
             menu = mymainmenu
         }
 )
-
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
 
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
@@ -606,7 +600,7 @@ globalkeys = gears.table.join(
                 { modkey, "Shift" },
                 "Return",
                 function()
-                    menubar.show()
+                    awful.spawn('rofi -modi drun -show drun -show-icons -width 22 -no-click-to-exit', false)
                 end,
                 { description = "show the menubar", group = "launcher" }
         ),
