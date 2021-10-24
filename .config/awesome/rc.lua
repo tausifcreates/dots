@@ -650,6 +650,14 @@ globalkeys = gears.table.join(
                     awful.spawn('amixer -D pulse set Master toggle', false)
                 end,
                 { description = 'toggle mute', group = 'hotkeys' }
+        ),
+        awful.key(
+                {},
+                'XF86AudioMicMute',
+                function()
+                    awful.spawn('amixer set Capture toggle', false)
+                end,
+                { description = 'mute microphone', group = 'hotkeys' }
         )
 )
 
