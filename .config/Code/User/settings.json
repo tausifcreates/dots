@@ -1,0 +1,64 @@
+{
+    "editor.minimap.enabled": false,
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "One Dark Pro",
+    "editor.fontFamily": "'Iosevka Nerd Font Mono', 'Font Awesome 5 Free Solid', 'monospace', monospace, 'Droid Sans Fallback'",
+    "workbench.iconTheme": "material-icon-theme",
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "explorer.confirmDelete": false,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1,
+    "[rust]": {
+        "editor.defaultFormatter": "matklad.rust-analyzer"
+    },
+    "editor.fontSize": 18,
+    "editor.renderIndentGuides": false,
+    "editor.renderLineHighlight": "gutter",
+    "terminal.integrated.gpuAcceleration": "on",
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "block",
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wrappingIndent": "deepIndent",
+    "html.format.wrapLineLength": 80,
+    "terminal.integrated.drawBoldTextInBrightColors": false,
+    "editor.wrappingStrategy": "advanced",
+    "tabnine.experimentalAutoImports": true,
+    "debug.console.fontSize": 16,
+    "markdown.preview.fontSize": 16,
+    "terminal.integrated.fontSize": 16,
+    "editor.tokenColorCustomizations": {
+        "[One Dark Pro]": {
+            "textMateRules": [
+                {
+                    "name": "Underline",
+                    "scope": "markup.underline",
+                    "settings": {
+                        "fontStyle": ""
+                    }
+                },
+            ],
+        },
+    },
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "bracketPairColorizer.scopeLineRelativePosition": false,
+    "bracketPairColorizer.showHorizontalScopeLine": false,
+    "bracketPairColorizer.showVerticalScopeLine": false,
+    "bracketPairColorizer.timeOut": 0,
+    "explorer.confirmDragAndDrop": false,
+    "C_Cpp.autocompleteAddParentheses": true,
+    "C_Cpp.default.customConfigurationVariables": {},
+    "C_Cpp.default.includePath": [
+        "/usr/include/**"
+    ],
+    "Lua.completion.callSnippet": "Both",
+    "Lua.completion.displayContext": 1,
+    "Lua.diagnostics.enable": false,
+    "Lua.hint.enable": true,
+    "Lua.hint.setType": true,
+    "editor.wordWrapColumn": 100,
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "editor.mouseWheelScrollSensitivity": 2,
+    "editor.cursorSmoothCaretAnimation": true,
+}
