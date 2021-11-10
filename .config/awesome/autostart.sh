@@ -2,10 +2,16 @@
 
 snixembed > /dev/null 2>&1 &
 
+killall mate-power-manager > /dev/null 2>&1; mate-power-manager > /dev/null 2>&1 &
+
+sleep 0.5
+
 killall iwgtk > /dev/null 2>&1; iwgtk -i &
 
-killall pasystray > /dev/null 2>&1; pasystray &
+sleep 0.5
 
 killall mictray > /dev/null 2>&1; mictray &
 
-mate-power-manager > /dev/null 2>&1 &
+sleep 0.5
+
+killall pasystray > /dev/null 2>&1; pasystray &

@@ -14,8 +14,6 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local hotkeys_popup = require("awful.hotkeys_popup")
--- awesome-wm-widgets
-local calendar = require("calendar")
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -62,26 +60,20 @@ end
 
 -- {{{ Variable definitions
 
--- Collection of themes
-local themes = {
-    "default", -- 1
-    "gtk", -- 2
-    "xresources", -- 3
-    "zenburn" -- 4
-}
-
-local chosen_theme = themes[4]
+local theme = "zenburn"
 
 -- @DOC_LOAD_THEME@
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
+beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), theme))
 
 -- @DOC_DEFAULT_APPLICATIONS@
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
 editor = os.getenv("EDITOR") or "kak"
 editor_cmd = terminal .. " -e " .. editor
+-- Default screen locker
+lock_screen = "xscreensaver-command -lock"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -112,6 +104,10 @@ myawesomemenu = {
     },
     {"manual", terminal .. " -e man awesome"},
     {"edit config", editor_cmd .. " " .. awesome.conffile},
+    {
+        "lock screen",
+        lock_screen
+    },
     {"restart", awesome.restart},
     {
         "quit",
@@ -145,7 +141,6 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
-calendar({}):attach(mytextclock)
 
 -- Create a wibox for each screen and add it
 -- @TAGLIST_BUTTON@
@@ -245,23 +240,6 @@ end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
-
--- Change border width of windows on certain arrangements/layouts
-screen.connect_signal(
-    "arrange",
-    function(s)
-        local max = s.selected_tag.layout.name == "max"
-        local only_one = #s.tiled_clients == 1 -- use tiled_clients so that other floating windows don't affect the count
-        -- but iterate over clients instead of tiled_clients as tiled_clients doesn't include maximized windows
-        for _, c in pairs(s.clients) do
-            if (max or only_one) and not c.floating or c.maximized then
-                c.border_width = 0
-            else
-                c.border_width = beautiful.border_width
-            end
-        end
-    end
-)
 
 -- @DOC_FOR_EACH_SCREEN@
 awful.screen.connect_for_each_screen(
