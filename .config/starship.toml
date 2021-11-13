@@ -1,13 +1,12 @@
 add_newline = false
 
 format = """
-$username$time$git_branch$directory$battery
-$character
+$username$time$git_branch$directory$battery$character
 """
 
 [character]
-success_symbol = "[❯](#d89eff)"
-error_symbol = "[❯](#ffa6cb)"
+success_symbol = " [❯](#d89eff)"
+error_symbol = " [❯](#ffa6cb)"
 
 [directory]
 truncation_length = 5
@@ -18,9 +17,9 @@ read_only = "  "
 home_symbol = "~"
 
 [battery]
-full_symbol = "🔋"
-charging_symbol = "⚡️"
-discharging_symbol = "💀"
+full_symbol = "🔋 "
+charging_symbol = " ⚡️"
+discharging_symbol = " 💀 "
 
 [[battery.display]]
 threshold = 30
