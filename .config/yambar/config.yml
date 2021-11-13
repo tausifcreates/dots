@@ -10,7 +10,7 @@ bar:
   margin: 24
 
   # Default font
-  font: DejaVuSansMono Nerd Font:pixelsize=18
+  font: Iosevka Nerd Font Mono:pixelsize=18
 
   foreground: eeeeeeff
   background: 22222266
