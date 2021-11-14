@@ -14,4 +14,4 @@ killall mictray > /dev/null 2>&1; mictray &
 
 sleep 0.5
 
-killall pasystray > /dev/null 2>&1; pasystray &
+killall volumeicon > /dev/null 2>&1; volumeicon &
